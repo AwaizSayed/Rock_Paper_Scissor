@@ -48,20 +48,20 @@ Here’s how the game looks:
 
 ### Start Screen
 
-![Start Screen](images/images/imageone.png)
-![Start Screen](images/images/imagetwo.png)
+![Start Screen](images/imageone.png)
+![Start Screen](images/imagetwo.png)
 
 ### Player Choices
 
 Player One clicks on start button
-![Start Screen](images/images/player1Start.png)
+![Start Screen](images/player1Start.png)
 
 As Player two clicks on start button game gets in action
-![Start Screen](images/images/player2Start.png)
+![Start Screen](images/player2Start.png)
 
 ### Scoreboard
 
-![Start Screen](images/images/result.png)
+![Start Screen](images/result.png)
 
 ---
 
