@@ -48,7 +48,7 @@ Here’s how the game looks:
 
 ### Start Screen
 
-![Start Screen](images/imageone.png)
+![Start Screen](images/imgone.png)
 ![Start Screen](images/imagetwo.png)
 
 ### Player Choices
