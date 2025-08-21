@@ -1,0 +1,65 @@
+.heading {
+  text-align: center;
+  font-size: 45px;
+}
+
+.player1 {
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  width: 100%;
+}
+
+.player2 {
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  width: 100%;
+}
+
+.main-player-div {
+  margin-top: 100px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.points-table {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+.actual-points-table {
+  border: 2px solid black;
+  font-size: larger;
+}
+
+.game-label {
+  font-size: 60px;
+}
+
+.start-btn {
+  font-size: 30px;
+  background-color: rgb(87, 214, 87);
+}
+
+.win {
+  font-size: 70px;
+}
+.win-div {
+  text-align: center;
+}
+
+.points {
+  font-size: 30px;
+}
+
+.points-div {
+  margin-top: 40px;
+  text-align: left;
+}
