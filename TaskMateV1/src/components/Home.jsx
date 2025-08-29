@@ -8,14 +8,14 @@ function Home() {
   const [activeTab, setActiveTab] = useState("all");
   const listRef = useRef(null);
 
-  useEffect(async () => {
+  useEffect(() => {
     if (listRef.current) {
-      listRef.current.scrollTop = await listRef.current.scrollHeight;
+      listRef.current.scrollTop = listRef.current.scrollHeight;
     }
   }, [todos]);
 
-  useEffect(async () => {
-    await axios
+  useEffect(() => {
+    axios
       .get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASE_URL}/get`)
       .then((result) => setTodos(result.data))
       .catch((error) => console.log(error));
