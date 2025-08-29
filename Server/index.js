@@ -8,9 +8,12 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect(
-  `mongodb+srv://${process.env.DB_ACCOUNT_PASSWORD}@cluster0.q7zsbbq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`
-);
+mongoose
+  .connect(
+    `mongodb+srv://${process.env.DB_ACCOUNT_PASSWORD}@cluster0.q7zsbbq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`
+  )
+  .then(() => console.log("MongoDB connected"))
+  .catch((err) => console.error(err));
 
 app.post("/add", (req, res) => {
   const task = req.body.task;
