@@ -8,21 +8,21 @@ function Home() {
   const [activeTab, setActiveTab] = useState("all");
   const listRef = useRef(null);
 
-  useEffect(() => {
+  useEffect(async () => {
     if (listRef.current) {
-      listRef.current.scrollTop = listRef.current.scrollHeight;
+      listRef.current.scrollTop = await listRef.current.scrollHeight;
     }
   }, [todos]);
 
-  useEffect(() => {
-    axios
+  useEffect(async () => {
+    await axios
       .get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASE_URL}/get`)
       .then((result) => setTodos(result.data))
       .catch((error) => console.log(error));
   }, []);
 
-  const handelAdd = () => {
-    axios
+  const handelAdd = async () => {
+    await axios
       .post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASE_URL}/add`, {
         task: task,
       })
@@ -30,15 +30,15 @@ function Home() {
       .catch((error) => console.log(error));
   };
 
-  const handleDelete = (id) => {
-    axios
+  const handleDelete = async (id) => {
+    await axios
       .delete(`${import.meta.env.VITE_REACT_APP_BACKEND_BASE_URL}/delete/` + id)
       .then((result) => location.reload())
       .catch((err) => console.log(err));
   };
 
-  const handleChange = (id) => {
-    axios
+  const handleChange = async (id) => {
+    await axios
       .put(`${import.meta.env.VITE_REACT_APP_BACKEND_BASE_URL}/update/` + id)
       .then((result) => location.reload())
       .catch((error) => console.log(error));

@@ -21,7 +21,7 @@ connectIt();
 
 app.get("/", async (req, res) => {
   console.log("Things are working");
-  await res.send("TaskMate Backend is running...");
+  res.send("TaskMate Backend is running...");
 });
 
 app.post("/add", async (req, res) => {
@@ -54,7 +54,7 @@ app.put("/update/:id", async (req, res) => {
 });
 
 app.delete("/delete/:id", async (req, res) => {
-  const { id } = await req.params;
+  const { id } = req.params;
 
   await TodoModel.findByIdAndDelete({ _id: id })
     .then((result) => res.json(result))
