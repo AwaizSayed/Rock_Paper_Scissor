@@ -8,22 +8,31 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-mongoose
-  .connect(
-    `mongodb+srv://${process.env.DB_ACCOUNT_PASSWORD}@cluster0.q7zsbbq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`
-  )
-  .then(() => console.log("MongoDB connected"))
-  .catch((err) => console.error(err));
+async function connectIt() {
+  await mongoose
+    .connect(
+      `mongodb+srv://${process.env.DB_ACCOUNT_PASSWORD}@cluster0.q7zsbbq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`
+    )
+    .then(() => console.log("MongoDB connected"))
+    .catch((err) => console.error(err));
+}
 
-app.post("/add", (req, res) => {
-  const task = req.body.task;
-  TodoModel.create({ task: task })
+connectIt();
+
+app.get("/", async (req, res) => {
+  console.log("Things are working");
+  await res.send("TaskMate Backend is running...");
+});
+
+app.post("/add", async (req, res) => {
+  task = await req.body.task;
+  await TodoModel.create({ task: task })
     .then((result) => res.json(result))
     .catch((err) => res.json(err));
 });
 
-app.get("/get", (req, res) => {
-  TodoModel.find()
+app.get("/get", async (req, res) => {
+  await TodoModel.find()
     .then((result) => res.json(result))
     .catch((error) => res.json(error));
 });
@@ -45,13 +54,13 @@ app.put("/update/:id", async (req, res) => {
 });
 
 app.delete("/delete/:id", async (req, res) => {
-  const { id } = req.params;
+  const { id } = await req.params;
 
-  TodoModel.findByIdAndDelete({ _id: id })
+  await TodoModel.findByIdAndDelete({ _id: id })
     .then((result) => res.json(result))
     .catch((err) => res.json(err));
 });
 
-app.listen(3001, () => {
+app.listen(3001, async () => {
   console.log("Listening");
 });
